@@ -3,6 +3,8 @@
     <tr>
       <th>Name</th>
       <th>Membership</th>
+      <th>Join Date</th>
+      <th>Expiration Date</th>
     </tr>
   </thead>
   <tbody>
@@ -10,6 +12,8 @@
     <tr>
       <td>{{member}}</td>
       <td>{{member.membership_type}}</td>
+      <td>{{member.join_date|date:"Y-m-d"}}</td>
+      <td>{{member.expiration_date|date:"Y-m-d"}}</td>
     </tr>
     {% empty %}
     <p>No members found.</p>

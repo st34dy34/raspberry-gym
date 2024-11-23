@@ -1,9 +1,6 @@
 {% extends 'main.html'%} {% block content %}
 <div class="grid-container">
-  <div class="left-column"></div>
+  <div class="left-column">{% include 'Membership/member_filter.html' %}</div>
   <div class="center-column">{% include 'Membership/member_list.html' %}</div>
-  <div class="right-column">
-    <!-- Content for the right column -->
-  </div>
 </div>
 {% endblock %}

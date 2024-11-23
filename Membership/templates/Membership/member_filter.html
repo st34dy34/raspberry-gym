@@ -1,14 +1,44 @@
-<ul>
-  <li>
-    <a href="?membership_type=10 vstup" class="side-menu-item">10 vstup</a>
-  </li>
-  <li>
-    <a href="?membership_type=20 vstup" class="side-menu-item">20 vstup</a>
-  </li>
-  <li>
-    <a href="?membership_type=1 měsíc" class="side-menu-item">1 měsíc</a>
-  </li>
-  <li>
-    <a href="?" class="side-menu-item">Vše</a>
-  </li>
-</ul>
+<div class="side-menu">
+  <ul>
+    <li></li>
+    <li class="side-menu-searchbar">
+      <form method="GET" action="">
+        <input type="text" name="search" placeholder="Search for members..." />
+        <input type="submit" />
+      </form>
+    </li>
+    <li class="side-menu-item" href="{% url 'refresh_expiration' %}">
+      <a href="?">Vše</a>
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_type=10 vstup"
+        ><span class="side-menu-label">10 vstup</span></a
+      >
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_type=20 vstup"
+        ><span class="side-menu-label">20 vstup</span></a
+      >
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_type=1 měsíc"
+        ><span class="side-menu-label">1 měsíc</span></a
+      >
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_type=3 měsíce"
+        ><span class="side-menu-label">3 měsíce</span></a
+      >
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_type=6 měsíců"
+        ><span class="side-menu-label">6 měsíců</span></a
+      >
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_type=1 rok"
+        ><span class="side-menu-label">1 rok</span></a
+      >
+    </li>
+  </ul>
+</div>
