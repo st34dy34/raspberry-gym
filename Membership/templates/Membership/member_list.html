@@ -1,5 +1,18 @@
-{% for member in members %}
-<p>{{member}}: {{member.membership_type}}</p>
-{% empty %}
-<p>No members found.</p>
-{% endfor %}
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Membership</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for member in members %}
+    <tr>
+      <td>{{member}}</td>
+      <td>{{member.membership_type}}</td>
+    </tr>
+    {% empty %}
+    <p>No members found.</p>
+    {% endfor %}
+  </tbody>
+</table>
