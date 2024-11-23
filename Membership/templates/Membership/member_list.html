@@ -1,5 +1,5 @@
-{% extends 'main.html'%} {% block content %}
-<h1>And this is member_list.html!</h1>
 {% for member in members %}
 <p>{{member}}: {{member.membership_type}}</p>
-{% endfor %} {% endblock%}
+{% empty %}
+<p>No members found.</p>
+{% endfor %}

@@ -8,4 +8,4 @@ def member_list(request):
     context = {
         'members':members,
     }
-    return render(request,'Membership/member_list.html',context)
+    return render(request,'Membership/members_layout.html',context)
