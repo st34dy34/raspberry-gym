@@ -1,44 +1,57 @@
 <div class="side-menu">
   <ul>
     <li></li>
+    <!-- This empty <li> can be removed if it's not needed -->
     <li class="side-menu-searchbar">
       <form method="GET" action="">
+        <!-- If you're submitting to the same page, keep action="" -->
         <input type="text" name="search" placeholder="Search for members..." />
-        <input type="submit" />
+        <input type="submit" value="Search" />
       </form>
     </li>
-    <li class="side-menu-item" href="{% url 'refresh_expiration' %}">
+    <li class="side-menu-item">
       <a href="?">Vše</a>
+      <!-- This seems correct for showing all members -->
     </li>
     <li class="side-menu-item">
-      <a href="?membership_type=10 vstup"
-        ><span class="side-menu-label">10 vstup</span></a
-      >
+      <a href="?membership_type=vstupová">
+        <span class="side-menu-label">Vstupové</span>
+      </a>
     </li>
     <li class="side-menu-item">
-      <a href="?membership_type=20 vstup"
-        ><span class="side-menu-label">20 vstup</span></a
-      >
+      <a href="?membership_type=časová">
+        <span class="side-menu-label">Časové</span>
+      </a>
     </li>
     <li class="side-menu-item">
-      <a href="?membership_type=1 měsíc"
-        ><span class="side-menu-label">1 měsíc</span></a
-      >
+      <a href="?membership_duration=10 vstup">
+        <span class="side-menu-label">10 vstup</span>
+      </a>
     </li>
     <li class="side-menu-item">
-      <a href="?membership_type=3 měsíce"
-        ><span class="side-menu-label">3 měsíce</span></a
-      >
+      <a href="?membership_duration=20 vstup">
+        <span class="side-menu-label">20 vstup</span>
+      </a>
     </li>
     <li class="side-menu-item">
-      <a href="?membership_type=6 měsíců"
-        ><span class="side-menu-label">6 měsíců</span></a
-      >
+      <a href="?membership_duration=1 měsíc">
+        <span class="side-menu-label">1 měsíc</span>
+      </a>
     </li>
     <li class="side-menu-item">
-      <a href="?membership_type=1 rok"
-        ><span class="side-menu-label">1 rok</span></a
-      >
+      <a href="?membership_duration=3 měsíce">
+        <span class="side-menu-label">3 měsíce</span>
+      </a>
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_duration=6 měsíců">
+        <span class="side-menu-label">6 měsíců</span>
+      </a>
+    </li>
+    <li class="side-menu-item">
+      <a href="?membership_duration=1 rok">
+        <span class="side-menu-label">1 rok</span>
+      </a>
     </li>
   </ul>
 </div>

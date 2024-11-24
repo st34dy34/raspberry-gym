@@ -3,19 +3,32 @@
     <tr>
       <th>Name</th>
       <th>Membership</th>
+      <th>Duration</th>
       <th>Join Date</th>
       <th>Expiration Date</th>
+      <th>Expired</th>
     </tr>
   </thead>
   <tbody>
-    {% for member in members %}
-    <tr>
-      <td>{{member}}</td>
+    {% for member in members %} {% if member.membership_type == "časová"%}
+    <tr class="table_time_type">
+      <td><a href="{% url 'member_card' member.id %}">{{member}}</a></td>
       <td>{{member.membership_type}}</td>
+      <td>{{member.membership_duration}}</td>
+      <td>{{member.date|date:"Y-m-d"}}</td>
+      <td>{{member.expiration_date|date:"Y-m-d"}}</td>
+      <td>{{member.expired}}</td>
+    </tr>
+    {% else %}
+    <tr class="table_entry_type">
+      <td><a href="{% url 'member_card' member.id %}">{{member}}</a></td>
+      <td>{{member.membership_type}}</td>
+      <td>{{member.membership_duration}}</td>
       <td>{{member.join_date|date:"Y-m-d"}}</td>
       <td>{{member.expiration_date|date:"Y-m-d"}}</td>
+      <td>{{member.expired}}</td>
     </tr>
-    {% empty %}
+    {% endif %} {% empty %}
     <p>No members found.</p>
     {% endfor %}
   </tbody>

@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('',views.member_list, name="member_list"),
-    path('refresh-expiration/', views.refresh_expiration_dates, name='refresh_expiration'),
+    path('member_card/<int:member_id>/',views.member_card, name="member_card"),
+    path('member_card/<int:member_id>/edit',views.member_edit, name="member_edit"),
 ]

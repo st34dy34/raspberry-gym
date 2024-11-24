@@ -1,0 +1,33 @@
+{% extends 'main.html'%} {% block content %}
+<div class="grid-container-1-2-1">
+  {% if member.expired %}
+  <div class="left-column" style="background-color: red"></div>
+  {% else %}
+  <div class="left-column" style="background-color: green"></div>
+  {% endif %}
+  <div class="center-column">
+    <div class="member-card">
+      <div class="rounded-circle"></div>
+      <h1>{{ member }}</h1>
+      <hr />
+      <p><strong>First Name:</strong> {{ member.first_name }}</p>
+      <p><strong>Last Name:</strong> {{ member.last_name }}</p>
+      <hr />
+      <p><strong>Membership Type:</strong> {{ member.membership_type }}</p>
+      <p><strong>Expired:</strong> {{ member.expired }}</p>
+      <hr />
+      <p><strong>Join Date:</strong> {{ member.starting_date|date:"Y-m-d" }}</p>
+      <p><strong>Expiration Date:</strong> {{ member.expiration_date|date:"Y-m-d" }}</p>
+
+      <a href="{% url 'member_edit' member.id %}" class="btn">Edit User</a>
+      <a href="{% url 'member_list' %}" class="btn">Back to Members List</a>
+    </div>
+  </div>
+  {% if member.expired %}
+  <div class="right-column" style="background-color: red"></div>
+  {% else %}
+  <div class="right-column" style="background-color: green"></div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main.html'%} {% block content %}
+<div class="grid-container-1-2-1">
+  <div class="left-column"></div>
+  <div class="center-column">
+    <div>
+      <form method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <button type="submit" class="btn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+  <div class="right-column"></div>
+</div>
+{% endblock %}
