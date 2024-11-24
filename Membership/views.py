@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
+from django.utils.timezone import now
 from .models import Member
 from .forms import MemberEditForm 
 
@@ -9,6 +10,7 @@ def member_list(request):
     membership_type = request.GET.get('membership_type')  
     membership_duration = request.GET.get('membership_duration')  
     search_query = request.GET.get('search', '') 
+    #-------------QUERY-----------#
     if membership_type:
          members = Member.objects.filter(membership_type=membership_type)
     elif membership_duration:
@@ -20,7 +22,17 @@ def member_list(request):
         )
     else:
         members = Member.objects.all()
-        
+    #-------------UPDATE EXPIRY-----------#
+    for member in members:
+        if member.membership_type == "časová" and member.starting_date and member.membership_duration:
+            # Call the method to calculate expiration and save
+            member.calculate_expiration()
+            if member.expiration_date:  # Check if expiration_date is not None
+                member.expired = member.expiration_date < now().date()  # Update expired status
+            else:
+                member.expired = True  # If expiration_date is None, consider it expired
+            member.save()
+            
     members = members.order_by('-id')
     context = {
         'members':members,

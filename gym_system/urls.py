@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Membership import urls
+from checkin import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('members/', include('Membership.urls'))
+    path('members/', include('Membership.urls')),
+    path('checkin/', include('checkin.urls'))
 ]
