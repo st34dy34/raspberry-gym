@@ -4,9 +4,14 @@
   <div class="center-column">
     <div class="counter-container">
       <div class="counter">
-        <div class="counter-number"><h1>AM</h1></div>
-        <img src="{% static 'images/logo.png' %}" alt="Logo" />
-        <div class="counter-number"><h1>PM</h1></div>
+        <div class="counter-number"><h1>{{am_checkins}}</h1></div>
+        <form method="POST" action="{% url 'client_checkin' %}">
+          {% csrf_token %}
+          <button type="submit" class="checkin-button">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" />
+          </button>
+        </form>
+        <div class="counter-number"><h1>{{ pm_checkins }}</h1></div>
       </div>
     </div>
   </div>
