@@ -1,0 +1,53 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<div class="center-column">
+  <div class="report-container">
+    <h1>Check-in Report</h1>
+    <h2>{{ start_date|date:"M d, Y" }} to {{ end_date|date:"M d, Y" }}</h2>
+
+    <div class="weekly-summary">
+      <div class="summary-card">
+        <h3>Morning Check-ins</h3>
+        <p class="total">{{ weekly_am_total }}</p>
+      </div>
+      <div class="summary-card">
+        <h3>Afternoon Check-ins</h3>
+        <p class="total">{{ weekly_pm_total }}</p>
+      </div>
+      <div class="summary-card highlight">
+        <h3>Weekly Total</h3>
+        <p class="total">{{ weekly_total }}</p>
+      </div>
+    </div>
+
+    <h3>Daily Breakdown</h3>
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Morning</th>
+          <th>Afternoon</th>
+          <th>Daily Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for checkin in daily_checkins %}
+        <tr>
+          <td>{{ checkin.date|date:"M d, Y" }}</td>
+          <td>{{ checkin.am_checkins }}</td>
+          <td>{{ checkin.pm_checkins }}</td>
+          <td>{{ checkin.total_checkins }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">No check-in data available for this period</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="report-nav">
+      <a href="{% url 'checkin_module' %}" class="btn">Back to Check-in</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

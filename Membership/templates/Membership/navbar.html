@@ -1,13 +1,13 @@
 <div class="navbar">
   <ul>
     <li>
-      <a href="/checkin/">Checkin</a>
+      <a href="{% url 'checkin_module' %}">Checkin</a>
     </li>
     <li>
-      <a href="/members/">Display User</a>
+      <a href="{% url 'member_list' %}">Members</a>
     </li>
     <li>
-      <a href="">Temporary</a>
+      <a href="{% url 'checkin_report' %}">Reports</a>
     </li>
     <li>
       <a href="register/">Register</a>

@@ -21,6 +21,6 @@ from checkin import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('members/', include('Membership.urls')),
-    path('checkin/', include('checkin.urls'))
+    path('', include('checkin.urls')),  
+    path('members/', include('Membership.urls')), 
 ]
