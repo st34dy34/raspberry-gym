@@ -1,8 +1,8 @@
-from django.urls import path, include
-from . import views
+from django.urls import path
+from .views import CheckinModuleView, ClientCheckinView, CheckinReportView
 
 urlpatterns = [
-    path('', views.checkin_module, name="checkin_module"),  #  shows the check-in form
-    path('checkin/', views.client_checkin, name="client_checkin"),  # handles check-in POST requests
-    path('report/', views.checkin_report, name="checkin_report"),
+    path('', CheckinModuleView.as_view(), name="checkin_module"),
+    path('checkin/', ClientCheckinView.as_view(), name="client_checkin"),
+    path('report/', CheckinReportView.as_view(), name="checkin_report"),
 ]
