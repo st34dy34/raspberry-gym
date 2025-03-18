@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import timedelta
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 
@@ -58,3 +59,12 @@ class Member(models.Model):
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+class EmployeeProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    employee_id = models.CharField(max_length=20, unique=True)
+    department = models.CharField(max_length=100)
+    is_employee = models.BooleanField(default=True)  # To distinguish employees from regular members
+
+    def __str__(self):
+        return f"{self.user.username} - {self.department}"

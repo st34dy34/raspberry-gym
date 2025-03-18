@@ -5,8 +5,10 @@ from django.utils import timezone
 from datetime import timedelta
 from django.views.generic import TemplateView
 from django.db.models import Sum
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class CheckinReportView(TemplateView):
+
+class CheckinReportView(LoginRequiredMixin,TemplateView):
     template_name = "checkin/report.html"
 
     def get_context_data(self, **kwargs):
@@ -36,7 +38,7 @@ class CheckinReportView(TemplateView):
         })
         return context
 
-class CheckinModuleView(TemplateView):
+class CheckinModuleView(LoginRequiredMixin,TemplateView):
     template_name = "checkin/checkin.html"
 
     def get_context_data(self, **kwargs):
@@ -49,7 +51,7 @@ class CheckinModuleView(TemplateView):
         })
         return context
 
-class ClientCheckinView(View):
+class ClientCheckinView(LoginRequiredMixin,View):
     def post(self, request):
         try:
             today_checkin, created = CheckinCount.objects.get_today()

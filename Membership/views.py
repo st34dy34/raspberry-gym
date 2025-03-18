@@ -3,9 +3,13 @@ from django.db.models import Q
 from django.utils.timezone import now
 from .models import Member
 from .forms import MemberEditForm 
+from .forms import UserRegisterForm
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def member_list(request):
     membership_type = request.GET.get('membership_type')  
     membership_duration = request.GET.get('membership_duration')  
@@ -68,3 +72,14 @@ def member_edit(request,member_id):
         'form': form,
     }
     return render(request,'Membership/member_edit.html',context)
+
+def register(request):
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Automatically log in the user after registration
+            return redirect("member_list")  # Redirect to member list after registration
+    else:
+        form = UserRegisterForm()
+    return render(request, "registration/register.html", {"form": form})
