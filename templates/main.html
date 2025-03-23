@@ -15,3 +15,29 @@
         {% endblock %}
     </main>
 </html>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the dropdown toggle button
+    const dropdownToggle = document.getElementById('userDropdownToggle');
+    const dropdown = document.getElementById('userDropdown');
+    
+    if (dropdownToggle) {
+      // Add click event to toggle dropdown
+      dropdownToggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        dropdown.classList.toggle('show');
+        dropdownToggle.classList.toggle('active');
+      });
+      
+      // Close dropdown when clicking elsewhere
+      window.addEventListener('click', function(event) {
+        if (!event.target.matches('#userDropdownToggle') && !dropdown.contains(event.target)) {
+          if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+            dropdownToggle.classList.remove('active');
+          }
+        }
+      });
+    }
+  });
+</script>

@@ -8,6 +8,7 @@ from django.db.models import Sum
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+
 class CheckinReportView(LoginRequiredMixin,TemplateView):
     template_name = "checkin/report.html"
 
