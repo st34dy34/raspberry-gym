@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Chyba{% endblock %}</title>
+    <style>
+      body {
+        background-color: #f1faee;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: #1d3557;
+      }
+      h1 {
+        font-size: 6rem;
+        margin-bottom: 0;
+      }
+      p {
+        font-size: 1.5rem;
+        margin-top: 0;
+      }
+      .emoji {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 24px;
+        background-color: #1d3557;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #e63946;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="emoji">{% block emoji %}❓{% endblock %}</div>
+    <h1>{% block code %}Chyba{% endblock %}</h1>
+    <p>{% block message %}Nastala neočekávaná chyba.{% endblock %}</p>
+    <a href="{% url 'member_list' %}" class="btn">Zpět domů</a>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<div class="center-column">
+  <div class="report-container">
+    <h1>O aplikaci</h1>
+    <p>
+      <strong>PS Fitness Gym System</strong> je moderní webová aplikace určená pro správu posiloven,
+      která umožňuje jednoduchou evidenci členů, sledování jejich docházky a generování týdenních
+      reportů. Systém je vytvořen pomocí frameworku Django v rámci závěrečného projektu kurzu
+      <em>Python Web Development</em>.
+    </p>
+
+    <h2>Hlavní funkce</h2>
+    <ul>
+      <li>Registrace a přihlášení uživatelů</li>
+      <li>Správa členství s filtrováním a vyhledáváním</li>
+      <li>Online docházkový systém (AM/PM)</li>
+      <li>Automatický výpočet expirace časových členství</li>
+      <li>Přehledný týdenní report s vizualizací</li>
+    </ul>
+
+    <h2>Technologický stack</h2>
+    <ul>
+      <li><strong>Backend:</strong> Python, Django, SQLite</li>
+      <li><strong>Frontend:</strong> HTML5, CSS3, Bootstrap</li>
+      <li><strong>Styling:</strong> Vlastní CSS + responzivní design</li>
+      <li><strong>Autentizace:</strong> Django Auth System</li>
+    </ul>
+
+    <h2>Cílová skupina</h2>
+    <p>
+      Menší a střední posilovny, které potřebují jednoduché a přehledné řešení pro správu členů a
+      docházky bez nutnosti placených služeb.
+    </p>
+
+    <h2>Autor projektu</h2>
+    <p>
+      <strong>David Hruška</strong> — student kurzu <em>Python Web Development</em>.<br />
+      Projekt vznikl jako závěrečné zadání v roce 2025.
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -18,7 +18,9 @@
         <p class="total">{{ weekly_total }}</p>
       </div>
     </div>
-
+    <div style="text-align: right; margin-bottom: 20px">
+      <a href="{% url 'export_members' %}" class="btn">Export to CSV</a>
+    </div>
     <h3>Daily Breakdown</h3>
     <table class="report-table">
       <thead>

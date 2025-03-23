@@ -4,40 +4,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>PS Fitness Gym System</title>
   </head>
   <body>
-    <header>{% include 'Membership/navbar.html'%}</header>
-    <main>
-        {% block content %}
+    <!--  Main wrapper -->
+    <div class="page-wrapper">
+      <header>{% include 'navbar.html' %}</header>
 
-        {% endblock %}
-    </main>
-</html>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get the dropdown toggle button
-    const dropdownToggle = document.getElementById('userDropdownToggle');
-    const dropdown = document.getElementById('userDropdown');
-    
-    if (dropdownToggle) {
-      // Add click event to toggle dropdown
-      dropdownToggle.addEventListener('click', function(event) {
+      <!--  Main obsah -->
+      <main class="main-content">{% block content %}{% endblock %}</main>
+
+      {% include 'footer.html' %}
+    </div>
+
+    <!--  JS for dropdown -->
+    <script>
+      function toggleDropdown(event) {
         event.preventDefault();
-        dropdown.classList.toggle('show');
-        dropdownToggle.classList.toggle('active');
-      });
-      
-      // Close dropdown when clicking elsewhere
-      window.addEventListener('click', function(event) {
-        if (!event.target.matches('#userDropdownToggle') && !dropdown.contains(event.target)) {
-          if (dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
-            dropdownToggle.classList.remove('active');
-          }
+        const menu = document.getElementById("userDropdown");
+        menu.classList.toggle("show");
+      }
+
+      document.addEventListener("click", function (event) {
+        const dropdown = document.getElementById("userDropdown");
+        const toggle = event.target.closest(".dropdown-toggle");
+        const insideDropdown = event.target.closest("#userDropdown");
+
+        if (!toggle && !insideDropdown && dropdown?.classList.contains("show")) {
+          dropdown.classList.remove("show");
         }
       });
-    }
-  });
-</script>
+    </script>
+  </body>
+</html>

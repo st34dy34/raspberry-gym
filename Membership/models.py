@@ -2,7 +2,7 @@ from django.db import models
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+import datetime
 
 
 class Member(models.Model):
@@ -30,7 +30,7 @@ class Member(models.Model):
     last_name = models.CharField(max_length=50)
     membership_type = models.CharField(max_length=20, choices=MEMBERSHIP_TYPE_CHOICES)
     membership_duration = models.CharField(max_length=20, choices=MEMBERSHIP_CHOICES)
-    starting_date = models.DateField(null=True, blank=True)
+    starting_date = models.DateField(default=datetime.date.today)
     expiration_date = models.DateField(null=True, blank=True)
     expired = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now=True)  # Last updated timestamp

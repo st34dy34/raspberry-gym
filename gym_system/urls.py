@@ -18,9 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from Membership import urls
 from checkin import urls
+from .views import AboutView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('checkin.urls')),  
     path('members/', include('Membership.urls')), 
+    path('about/', AboutView.as_view(), name='about'),  
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

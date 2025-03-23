@@ -7,9 +7,28 @@ body {
   background-color: #f1faee;
 }
 
+/* Sticky Footer Layout */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+footer {
+  background-color: #1d3557;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
 a {
-  color: inherit; /* Inherits color from parent element */
-  text-decoration: none; /* Removes underline */
+  color: inherit;
+  text-decoration: none;
 }
 
 .btn {
@@ -35,7 +54,6 @@ a {
   font-size: 12px;
   transition: background-color 0.3s ease;
 }
-/* -----MEMBERSHIP SECTION----- */
 
 /* NAVBAR */
 .navbar {
@@ -55,7 +73,7 @@ a {
 }
 
 .navbar li {
-  flex: 1; /* Distribute items equally across navbar */
+  flex: 1;
 }
 
 .navbar a {
@@ -76,18 +94,15 @@ a {
   background-color: #e63946;
 }
 
-/* BODY CONTAINER */
+/* GRID CONTAINERS */
 .grid-container-1-3 {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
+
 .grid-container-1-2-1 {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-}
-
-.left-column {
-  /*background-color: aquamarine;*/
 }
 
 .center-column {
@@ -95,10 +110,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.center-column .styled-table tr {
-  height: 15px;
 }
 
 /* TABLE */
@@ -120,12 +131,12 @@ a {
 }
 
 .styled-table tbody tr {
-  height: 15px; /* Fixed height for rows */
+  height: 15px;
   border-bottom: thin solid #1d3557;
 }
 
 .styled-table td {
-  height: 35px; /* Fixed height for cells */
+  height: 35px;
   padding: 0;
   line-height: 15px;
   font-size: medium;
@@ -142,6 +153,7 @@ a {
 .styled-table tbody .table_entry_type {
   background-color: #457b9d;
 }
+
 .font-expired {
   color: #e63946;
   font-weight: 900;
@@ -149,6 +161,7 @@ a {
 .font-notexpired {
   font-weight: 900;
 }
+
 /* SIDE MENU */
 .side-menu {
   width: 100%;
@@ -165,23 +178,16 @@ a {
   font-size: 20px;
   text-decoration: none;
   color: black;
-
   border-bottom: 1px solid black;
   padding: 10px;
   margin-bottom: 10px;
 }
-
-/*.side-menu-searchbar {
-  padding: 20px;
-  margin-bottom: 15px;
-}*/
 
 input[type="text"],
 select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -197,6 +203,7 @@ input[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
 }
+
 input[type="submit"]:hover {
   background-color: #e63946;
   transition: background-color 0.3s ease;
@@ -205,26 +212,31 @@ input[type="submit"]:hover {
 .btn:hover {
   background-color: #e63946;
 }
-/* -----CHECKIN SECTION----- */
+
+/* CHECKIN SECTION */
 .counter-container {
   padding: 50px;
   width: 100%;
   text-align: center;
 }
+
 .counter {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .counter-number {
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
 }
+
 .counter-number h3 {
   color: #1d3557;
   margin-bottom: 5px;
 }
+
 .checkin-button {
   background: none;
   border: none;
@@ -244,7 +256,7 @@ input[type="submit"]:hover {
   font-weight: bold;
 }
 
-/* New styles for alert messages */
+/* ALERTS */
 .alert {
   padding: 15px;
   margin-bottom: 20px;
@@ -265,7 +277,6 @@ input[type="submit"]:hover {
   border: 1px solid #e63946;
 }
 
-/* New styles for daily total */
 .daily-total {
   text-align: center;
   margin-top: 20px;
@@ -276,13 +287,12 @@ input[type="submit"]:hover {
   font-size: 1.5rem;
 }
 
-/* Admin links styling */
 .admin-links {
   margin-top: 30px;
   text-align: center;
 }
 
-/* Report page styling */
+/* REPORT */
 .report-container {
   width: 90%;
   max-width: 800px;
@@ -376,6 +386,7 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
+/* NAVBAR FORM BUTTON */
 .navbar form {
   display: flex;
   justify-content: center;
@@ -387,11 +398,11 @@ input[type="submit"]:hover {
 }
 
 .navbar button {
-  all: unset; /* Resets all button styles */
+  all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1d3557; /* Same as .navbar a */
+  background-color: #1d3557;
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -407,7 +418,7 @@ input[type="submit"]:hover {
   background-color: #e63946;
 }
 
-/* Dropdown styles */
+/* DROPDOWN */
 .dropdown {
   position: relative;
 }
@@ -430,7 +441,6 @@ input[type="submit"]:hover {
   transition: all 0.3s ease;
 }
 
-/* Show class for dropdown menu */
 .dropdown-menu.show {
   display: block;
 }
@@ -453,12 +463,6 @@ input[type="submit"]:hover {
   background-color: #e63946;
 }
 
-/* Special styling for the username toggle */
-.dropdown-toggle {
-  position: relative;
-}
-
-/* Add a small indicator arrow */
 .dropdown-toggle::after {
   content: "";
   display: inline-block;
@@ -469,7 +473,6 @@ input[type="submit"]:hover {
   border-left: 5px solid transparent;
 }
 
-/* Rotate arrow when dropdown is open */
 .dropdown-toggle.active::after {
   transform: rotate(180deg);
 }

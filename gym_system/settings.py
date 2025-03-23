@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cob^#^2&4=qqdlaj5w#c-dxgy)h%2o_e5@a93#_h!fx#zsl$zm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'gym_system.context_processors.current_year',
             ],
         },
     },
@@ -119,6 +120,8 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',

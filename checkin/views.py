@@ -20,7 +20,7 @@ class CheckinReportView(LoginRequiredMixin,TemplateView):
         checkins = CheckinCount.objects.filter(
             date__gte=start_date, 
             date__lte=end_date
-        ).order_by('date')
+        ).order_by('-date')
         
         # Use aggregation to calculate totals
         weekly_totals = checkins.aggregate(

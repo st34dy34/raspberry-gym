@@ -4,8 +4,14 @@ from django.utils.timezone import now
 from .models import Member
 from .forms import MemberEditForm 
 from .forms import UserRegisterForm
+from .forms import MemberForm
+from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.http import HttpResponse
+from django.views import View
+import csv
 
 # Create your views here.
 
@@ -83,3 +89,46 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, "registration/register.html", {"form": form})
+
+@login_required
+def add_member(request):
+    if request.method == 'POST':
+        form = MemberForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Člen byl úspěšně přidán.')
+            return redirect('member_list')
+        else:
+            messages.error(request, 'Formulář obsahuje chyby.')
+    else:
+        form = MemberForm()
+    return render(request, 'Membership/member_add.html', {'form': form})
+
+
+@method_decorator(login_required, name='dispatch')
+class ExportMembersCSV(View):
+    def get(self, request):
+        # Adding BOM encoding for Excel
+        response = HttpResponse(
+            content_type='text/csv; charset=utf-8-sig'
+        )
+        response['Content-Disposition'] = 'attachment; filename="members.csv"'
+
+        # BOM = \ufeff
+        response.write('\ufeff')
+
+        writer = csv.writer(response, delimiter=';')
+        writer.writerow(['Jméno', 'Příjmení', 'Typ členství', 'Délka', 'Od', 'Do', 'Expirováno'])
+
+        for member in Member.objects.all():
+            writer.writerow([
+                member.first_name,
+                member.last_name,
+                member.membership_type,
+                member.membership_duration,
+                member.starting_date,
+                member.expiration_date,
+                'Ano' if member.expired else 'Ne'
+            ])
+
+        return response
