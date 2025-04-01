@@ -1,6 +1,6 @@
 {% extends 'main.html' %} {% block content %}
 <div class="center-column">
-  <h1>Add a new member</h1>
+  <h1>Přidat uživatele</h1>
 
   <form method="POST">
     {% csrf_token %} {{ form.as_p }}

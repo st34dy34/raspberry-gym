@@ -1,10 +1,10 @@
 {% extends 'main.html' %} {% block content %}
 <div class="center-column">
-  <h2>Login</h2>
+  <h2>Přihlášení</h2>
   <form method="post">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Přihlásit se</button>
   </form>
-  <p>Don't have an account? <a href="{% url 'register' %}" class="btn_smaller">Register here</a></p>
+  <p>Nemáš účet? <a href="{% url 'register' %}" class="btn_smaller">Zaregistruj se zde</a></p>
 </div>
 {% endblock %}

@@ -1,54 +1,54 @@
 {% extends 'main.html' %} {% load static %} {% block content %}
 <div class="center-column">
   <div class="report-container">
-    <h1>Check-in Report</h1>
-    <h2>{{ start_date|date:"M d, Y" }} to {{ end_date|date:"M d, Y" }}</h2>
+    <h1>Docházkový přehled</h1>
+    <h2>{{ start_date|date:"d. m. Y" }} – {{ end_date|date:"d. m. Y" }}</h2>
 
     <div class="weekly-summary">
       <div class="summary-card">
-        <h3>Morning Check-ins</h3>
+        <h3>Ranní příchody</h3>
         <p class="total">{{ weekly_am_total }}</p>
       </div>
       <div class="summary-card">
-        <h3>Afternoon Check-ins</h3>
+        <h3>Odpolední příchody</h3>
         <p class="total">{{ weekly_pm_total }}</p>
       </div>
       <div class="summary-card highlight">
-        <h3>Weekly Total</h3>
+        <h3>Týdenní součet</h3>
         <p class="total">{{ weekly_total }}</p>
       </div>
     </div>
     <div style="text-align: right; margin-bottom: 20px">
-      <a href="{% url 'export_members' %}" class="btn">Export to CSV</a>
+      <a href="{% url 'export_members' %}" class="btn">Export do CSV</a>
     </div>
-    <h3>Daily Breakdown</h3>
+    <h3>Denní rozpis</h3>
     <table class="report-table">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Morning</th>
-          <th>Afternoon</th>
-          <th>Daily Total</th>
+          <th>Datum</th>
+          <th>Ráno</th>
+          <th>Odpoledne</th>
+          <th>Celkem za den</th>
         </tr>
       </thead>
       <tbody>
         {% for checkin in daily_checkins %}
         <tr>
-          <td>{{ checkin.date|date:"M d, Y" }}</td>
+          <td>{{ checkin.date|date:"d. m. Y" }}</td>
           <td>{{ checkin.am_checkins }}</td>
           <td>{{ checkin.pm_checkins }}</td>
           <td>{{ checkin.total_checkins }}</td>
         </tr>
         {% empty %}
         <tr>
-          <td colspan="4">No check-in data available for this period</td>
+          <td colspan="4">Pro toto období nejsou dostupná žádná data</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
 
     <div class="report-nav">
-      <a href="{% url 'checkin_module' %}" class="btn">Back to Check-in</a>
+      <a href="{% url 'checkin_module' %}" class="btn">Zpět na docházku</a>
     </div>
   </div>
 </div>

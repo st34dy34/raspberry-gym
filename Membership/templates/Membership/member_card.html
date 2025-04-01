@@ -10,17 +10,17 @@
       <div class="rounded-circle"></div>
       <h1>{{ member }}</h1>
       <hr />
-      <p><strong>First Name:</strong> {{ member.first_name }}</p>
-      <p><strong>Last Name:</strong> {{ member.last_name }}</p>
+      <p><strong>Jméno:</strong> {{ member.first_name }}</p>
+      <p><strong>Příjmení:</strong> {{ member.last_name }}</p>
       <hr />
-      <p><strong>Membership Type:</strong> {{ member.membership_type }}</p>
-      <p><strong>Expired:</strong> {{ member.expired }}</p>
+      <p><strong>Typ členství:</strong> {{ member.membership_type }}</p>
+      <p><strong>Expirované:</strong> {{ member.expired }}</p>
       <hr />
-      <p><strong>Join Date:</strong> {{ member.starting_date|date:"Y-m-d" }}</p>
-      <p><strong>Expiration Date:</strong> {{ member.expiration_date|date:"Y-m-d" }}</p>
+      <p><strong>Datum zahájení:</strong> {{ member.starting_date|date:"Y-m-d" }}</p>
+      <p><strong>Datum vypršení:</strong> {{ member.expiration_date|date:"Y-m-d" }}</p>
 
-      <a href="{% url 'member_edit' member.id %}" class="btn">Edit User</a>
-      <a href="{% url 'member_list' %}" class="btn">Back to Members List</a>
+      <a href="{% url 'member_edit' member.id %}" class="btn">Upravit člena</a>
+      <a href="{% url 'member_list' %}" class="btn">Zpět na seznam členů</a>
     </div>
   </div>
   {% if member.expired %}

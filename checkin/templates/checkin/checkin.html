@@ -9,7 +9,7 @@
     <div class="counter-container">
       <div class="counter">
         <div class="counter-number">
-          <h3>Morning</h3>
+          <h3>Dopoledne:</h3>
           <h1>{{am_checkins}}</h1>
         </div>
         <form method="POST" action="{% url 'client_checkin' %}">
@@ -19,12 +19,12 @@
           </button>
         </form>
         <div class="counter-number">
-          <h3>Afternoon</h3>
+          <h3>Odpoledne:</h3>
           <h1>{{ pm_checkins }}</h1>
         </div>
       </div>
       <div class="daily-total">
-        <h2>Total Today: {{ total_checkins }}</h2>
+        <h2>Celkem dnes: {{ total_checkins }}</h2>
       </div>
     </div>
   </div>

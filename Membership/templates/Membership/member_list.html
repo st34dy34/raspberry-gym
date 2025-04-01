@@ -1,11 +1,11 @@
 <table class="styled-table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Membership</th>
-      <th>Duration</th>
-      <th>Starting Date</th>
-      <th>Expiration Date</th>
+      <th>Jméno</th>
+      <th>Členství</th>
+      <th>Délka</th>
+      <th>Datum zahájení</th>
+      <th>Datum vypršení</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +30,7 @@
       <td>{{member.expiration_date|date:"Y-m-d"}}</td>
     </tr>
     {% endif %} {% empty %}
-    <p>No members found.</p>
+    <p>Nenalezeni žádní členové.</p>
     {% endfor %}
   </tbody>
 </table>
