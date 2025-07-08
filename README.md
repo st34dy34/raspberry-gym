@@ -1,35 +1,36 @@
-# 🏋️ Systém pro správu fitness centra
+# 🏋️ Gym Management System
 
-**Gym Management System** je webová aplikace vytvořená pomocí frameworku Django jako součást **Kurzu programování v Pythonu na IT Step Academy Brno**. Cílem projektu je nabídnout jednoduchý a funkční systém pro správu členů a docházky ve fitness centru.
+**Gym Management System** is a web application built with the Django framework as part of the **Python Programming Course at IT Step Academy Brno**. The project aims to provide a simple and functional system for managing members and attendance at a fitness center.
 
-## 🎓 O projektu
+## 🎓 About the Project
 
-Tento projekt vznikl jako závěrečný výstup kurzu a demonstruje:
-- práci s frameworkem Django a jazykem Python
-- tvorbu vlastních modelů, pohledů, šablon a formulářů
-- použití autentizace a administrace v Djangu
-- validaci dat a export do CSV
+This project was created as the final output of the course and demonstrates:
+- working with the Django framework and Python language
+- creating custom models, views, templates, and forms
+- using authentication and admin in Django
+- data validation and CSV export
 
-## 🔧 Funkce
+## 🔧 Features
 
-- 👤 Registrace a správa členů (přidání, úprava, zobrazení, mazání)
-- 📆 Evidence typu a délky členství
-- ✅ Docházka (zvlášť dopoledne / odpoledne)
-- 📊 Týdenní reporty s denním rozpisem
-- 🔐 Přihlášení a registrace uživatelů
-- 🗃️ Export členů do CSV
-- 💡 Minimalistické, rozšiřitelné řešení
+- 👤 Member registration and management (add, edit, view, delete)
+- 📆 Recording membership type and duration
+- ✅ Attendance tracking (morning / afternoon separately)
+- 📊 Weekly reports with daily breakdowns
+- 🔐 User login and registration
+- 🗃️ Export members to CSV
+- 💡 Minimalistic, extensible solution
 
-## 🛠️ Použité technologie
+## 🛠️ Technologies Used
 
 - **Python 3.11+**
 - **Django 5.1.3**
-- **SQLite** (výchozí databáze pro vývoj)
-- HTML + CSS (vlastní šablony)
+- **SQLite** (default development database)
+- HTML + CSS (custom templates)
 
-## 📦 Instalace
+## 📦 Installation
 
-1. **Naklonuj repozitář:**
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/st34dy34/raspberry-gym.git
 cd raspberry-gym
+```
